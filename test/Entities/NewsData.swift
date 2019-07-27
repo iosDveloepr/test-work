@@ -9,5 +9,5 @@
 import Foundation
 
 struct NewsData: Decodable{
-    var articles: [News]
+    var articles: [NewsModel]
 }

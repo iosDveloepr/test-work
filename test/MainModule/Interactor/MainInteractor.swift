@@ -8,10 +8,12 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 class MainInteractor: MainInteractorProtocol{
   
     var presentor: MainInteractorToPresentorProtocol?
+    var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
     func fetchNews() {
         Alamofire.request(Constants.URL, method: .get).responseJSON { (response) in
@@ -19,11 +21,35 @@ class MainInteractor: MainInteractorProtocol{
                 guard let data = response.data else {return}
                 do{
                     let newsData = try JSONDecoder().decode(NewsData.self, from: data)
-                    self.presentor?.newsFetched(news: newsData.articles)
+                    self.updateDatabase(with: newsData.articles)
                 }
                 catch{}
             } else {
                 self.presentor?.newsFailed()
+            }
+        }
+    }
+    
+    private func updateDatabase(with news: [NewsModel]){
+        container?.performBackgroundTask {  [weak self] context in
+            for newsInfo in news{
+                _ = try? News.findOrCreateNews(matching: newsInfo, in: context)
+            }
+            try? context.save()
+            self?.updateUI()
+        }
+    }
+    
+    
+    private func updateUI(){
+        if let context = container?.viewContext{
+            let request: NSFetchRequest<News> = News.fetchRequest()
+            request.returnsObjectsAsFaults = false
+            do {
+                let result = try context.fetch(request)
+                presentor?.newsFetched(news: result)
+            } catch {
+                print("Failed")
             }
         }
     }

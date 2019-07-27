@@ -17,9 +17,10 @@ class NewsTableViewCell: UITableViewCell {
     static let newsCell = "newsCell"
     
     func setUpCell(with news: News){
-        newsImage.load(url: URL(string: news.urlToImage)!)
         newsTitle.text = news.title
-        newsDescription.text = news.description
+        newsDescription.text = news.desc
+        guard let image = news.image else { return }
+        newsImage.image = UIImage(data: image)
     }
     
     override func prepareForReuse() {
