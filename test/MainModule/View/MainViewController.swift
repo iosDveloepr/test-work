@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 120
         presentor?.updateUI()
     }
 
@@ -36,7 +38,7 @@ extension MainViewController: MainViewProtocol{
     }
     
     func showError() {
-        print("Error")
+        self.showAlert(title: "An error has occurred", message: "Try again later")
     }
     
 }

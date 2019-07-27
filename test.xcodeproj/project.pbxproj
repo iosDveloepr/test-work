@@ -23,6 +23,7 @@
 		F112D77222EB11A900D8AB0A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112D77122EB11A900D8AB0A /* NewsTableViewCell.swift */; };
 		F112D77422EB177A00D8AB0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112D77322EB177A00D8AB0A /* Constants.swift */; };
 		F112D77622EB211A00D8AB0A /* ImageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112D77522EB211A00D8AB0A /* ImageParser.swift */; };
+		F1EE724F22EC4E8400D1DFC3 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE724E22EC4E8400D1DFC3 /* ErrorAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F112D77122EB11A900D8AB0A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		F112D77322EB177A00D8AB0A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F112D77522EB211A00D8AB0A /* ImageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParser.swift; sourceTree = "<group>"; };
+		F1EE724E22EC4E8400D1DFC3 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				F112D74622EAF47100D8AB0A /* AppDelegate.swift */,
 				F112D77322EB177A00D8AB0A /* Constants.swift */,
+				F1EE724E22EC4E8400D1DFC3 /* ErrorAlert.swift */,
 				F112D77522EB211A00D8AB0A /* ImageParser.swift */,
 				F112D76C22EAF71A00D8AB0A /* Entities */,
 				F112D75C22EAF4B200D8AB0A /* MainModule */,
@@ -300,6 +303,7 @@
 				F112D76222EAF52A00D8AB0A /* MainProtocol's.swift in Sources */,
 				F112D77422EB177A00D8AB0A /* Constants.swift in Sources */,
 				F112D76B22EAF61800D8AB0A /* MainRouter.swift in Sources */,
+				F1EE724F22EC4E8400D1DFC3 /* ErrorAlert.swift in Sources */,
 				F112D77222EB11A900D8AB0A /* NewsTableViewCell.swift in Sources */,
 				F112D76E22EAFA0F00D8AB0A /* News.swift in Sources */,
 				F112D74922EAF47100D8AB0A /* MainViewController.swift in Sources */,
