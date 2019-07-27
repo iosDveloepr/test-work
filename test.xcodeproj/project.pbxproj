@@ -22,9 +22,9 @@
 		F112D77022EAFBB600D8AB0A /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112D76F22EAFBB600D8AB0A /* NewsData.swift */; };
 		F112D77222EB11A900D8AB0A /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112D77122EB11A900D8AB0A /* NewsTableViewCell.swift */; };
 		F112D77422EB177A00D8AB0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112D77322EB177A00D8AB0A /* Constants.swift */; };
-		F112D77622EB211A00D8AB0A /* ImageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112D77522EB211A00D8AB0A /* ImageParser.swift */; };
 		F1EE724F22EC4E8400D1DFC3 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE724E22EC4E8400D1DFC3 /* ErrorAlert.swift */; };
 		F1EE725522EC57C700D1DFC3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE725422EC57C700D1DFC3 /* News.swift */; };
+		F1EE725822EC805B00D1DFC3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE725722EC805B00D1DFC3 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,9 +47,9 @@
 		F112D76F22EAFBB600D8AB0A /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		F112D77122EB11A900D8AB0A /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		F112D77322EB177A00D8AB0A /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F112D77522EB211A00D8AB0A /* ImageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParser.swift; sourceTree = "<group>"; };
 		F1EE724E22EC4E8400D1DFC3 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		F1EE725422EC57C700D1DFC3 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		F1EE725722EC805B00D1DFC3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,6 @@
 		F112D73A22EAF47100D8AB0A = {
 			isa = PBXGroup;
 			children = (
-				F1EE725122EC553F00D1DFC3 /* Core Data */,
 				F112D74522EAF47100D8AB0A /* test */,
 				F112D74422EAF47100D8AB0A /* Products */,
 				0FE3A72D627FB0B1019E74B9 /* Pods */,
@@ -104,14 +103,13 @@
 			isa = PBXGroup;
 			children = (
 				F112D74622EAF47100D8AB0A /* AppDelegate.swift */,
-				F112D77322EB177A00D8AB0A /* Constants.swift */,
-				F1EE724E22EC4E8400D1DFC3 /* ErrorAlert.swift */,
-				F112D77522EB211A00D8AB0A /* ImageParser.swift */,
 				F112D76C22EAF71A00D8AB0A /* Entities */,
 				F112D75C22EAF4B200D8AB0A /* MainModule */,
 				F112D75D22EAF4CB00D8AB0A /* DetailModule */,
 				F112D75022EAF47200D8AB0A /* Assets.xcassets */,
 				F112D74A22EAF47100D8AB0A /* Main.storyboard */,
+				F1EE724E22EC4E8400D1DFC3 /* ErrorAlert.swift */,
+				F112D77322EB177A00D8AB0A /* Constants.swift */,
 				F112D75222EAF47200D8AB0A /* LaunchScreen.storyboard */,
 				F112D75522EAF47200D8AB0A /* Info.plist */,
 			);
@@ -142,6 +140,7 @@
 		F112D75D22EAF4CB00D8AB0A /* DetailModule */ = {
 			isa = PBXGroup;
 			children = (
+				F1EE725622EC802F00D1DFC3 /* View */,
 			);
 			path = DetailModule;
 			sourceTree = "<group>";
@@ -181,6 +180,7 @@
 		F112D76C22EAF71A00D8AB0A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				F1EE725122EC553F00D1DFC3 /* Core Data */,
 				F112D76D22EAFA0F00D8AB0A /* NewsModel.swift */,
 				F112D76F22EAFBB600D8AB0A /* NewsData.swift */,
 			);
@@ -194,6 +194,14 @@
 				F1EE725422EC57C700D1DFC3 /* News.swift */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		F1EE725622EC802F00D1DFC3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1EE725722EC805B00D1DFC3 /* DetailViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,8 +329,8 @@
 				F112D74922EAF47100D8AB0A /* MainViewController.swift in Sources */,
 				F112D77022EAFBB600D8AB0A /* NewsData.swift in Sources */,
 				F112D74722EAF47100D8AB0A /* AppDelegate.swift in Sources */,
-				F112D77622EB211A00D8AB0A /* ImageParser.swift in Sources */,
 				F112D74F22EAF47100D8AB0A /* test.xcdatamodeld in Sources */,
+				F1EE725822EC805B00D1DFC3 /* DetailViewController.swift in Sources */,
 				F112D76522EAF5D100D8AB0A /* MainPresentor.swift in Sources */,
 				F112D76822EAF5FB00D8AB0A /* MainInteractor.swift in Sources */,
 			);

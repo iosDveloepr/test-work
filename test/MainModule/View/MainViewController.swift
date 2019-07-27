@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    var refreshControl = UIRefreshControl()
     
     var presentor: MainPresentorProtocol?
     
@@ -21,14 +22,24 @@ class MainViewController: UIViewController {
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        tableView.addSubview(refreshControl)
+        
         presentor?.updateUI()
     }
-
+    
+    @objc func refresh(sender:AnyObject) {
+        presentor?.updateUI()
+        self.refreshControl.endRefreshing()
+    }
+    
 }
 
 extension MainViewController: MainViewProtocol{
@@ -38,13 +49,13 @@ extension MainViewController: MainViewProtocol{
     }
     
     func showError() {
-        self.showAlert(title: "An error has occurred", message: "Try again later")
+        self.showAlert(title: "An error with updating news has occurred", message: "Check your internet connection")
     }
     
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return news.count
     }
@@ -56,4 +67,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let news = self.news[indexPath.row]
+        presentor?.showTodoDetail(news)
+    }
 }

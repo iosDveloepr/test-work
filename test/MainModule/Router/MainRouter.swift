@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class MainRouter: MainRouterProtocol{
-   
+    
     static let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     class func createMainModule() -> UIViewController {
@@ -29,5 +29,15 @@ class MainRouter: MainRouterProtocol{
         return navController
     }
     
+    func presentToDoDetailScreen(from view: MainViewProtocol, for news: News) {
+        
+        let detailVC = MainRouter.storyboard.instantiateViewController(withIdentifier: "DetailVC") as! DetailViewController
+        detailVC.news = news
+        
+        guard let viewVC = view as? UIViewController else {
+            fatalError("Invalid View Protocol type")
+        }
+        viewVC.navigationController?.pushViewController(detailVC, animated: true)
+    }
     
 }

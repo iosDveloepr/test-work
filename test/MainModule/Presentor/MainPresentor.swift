@@ -9,13 +9,20 @@
 import Foundation
 
 class MainPresentor: MainPresentorProtocol{
-   
+
     var view: MainViewProtocol?
     var interactor: MainInteractorProtocol?
     var router: MainRouterProtocol?
     
     func updateUI() {
-        interactor?.fetchNews()
+        interactor?.fetchNews(completion: {
+            self.interactor?.updateUI()
+        })
+    }
+    
+    func showTodoDetail(_ news: News) {
+        guard let view = view else { return }
+        router?.presentToDoDetailScreen(from: view, for: news)
     }
     
 }

@@ -21,13 +21,14 @@ protocol MainPresentorProtocol: class{
     var view: MainViewProtocol? { get set }
     var interactor: MainInteractorProtocol? { get set }
     var router: MainRouterProtocol? { get set }
-    
+    func showTodoDetail(_ news: News)
     func updateUI()
 }
 
 protocol MainInteractorProtocol: class{
     var presentor: MainInteractorToPresentorProtocol? { get set }
-    func fetchNews()
+    func fetchNews(completion: @escaping () -> Void)
+    func updateUI()
 }
 
 protocol MainInteractorToPresentorProtocol: class{
@@ -37,4 +38,5 @@ protocol MainInteractorToPresentorProtocol: class{
 
 protocol MainRouterProtocol: class{
     static func createMainModule() -> UIViewController
+    func presentToDoDetailScreen(from view: MainViewProtocol, for news: News)
 }
