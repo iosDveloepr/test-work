@@ -9,10 +9,10 @@
 import Foundation
 
 struct NewsModel: Decodable{
-    var author: String
-    var title: String
-    var description: String
-    var url: String
-    var urlToImage: String
-    var publishedAt: String
+    let author: String
+    let title: String
+    let description: String
+    let url: String
+    let urlToImage: String
+    let publishedAt: String
 }

@@ -24,6 +24,7 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
         newsImage.image = nil
         newsTitle.text = nil
         newsDescription.text = nil

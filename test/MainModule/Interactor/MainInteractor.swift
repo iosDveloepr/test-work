@@ -15,19 +15,18 @@ class MainInteractor: MainInteractorProtocol{
     var presentor: MainInteractorToPresentorProtocol?
     var container: NSPersistentContainer? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
-    func fetchNews(completion: @escaping () -> Void) {
+    func fetchNews() {
         Alamofire.request(Constants.URL, method: .get).responseJSON { (response) in
             if response.error == nil {
                 guard let data = response.data else {return}
                 do{
                     let newsData = try JSONDecoder().decode(NewsData.self, from: data)
                     self.updateDatabase(with: newsData.articles)
-                    completion()
                 }
                 catch{}
             } else {
-                completion()
                 self.presentor?.newsFailed()
+                self.updateUI()
             }
         }
     }
@@ -38,6 +37,7 @@ class MainInteractor: MainInteractorProtocol{
                 _ = try? News.findOrCreateNews(matching: newsInfo, in: context)
             }
             try? context.save()
+            self.updateUI()
         }
     }
     

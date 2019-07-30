@@ -27,7 +27,7 @@ protocol MainPresentorProtocol: class{
 
 protocol MainInteractorProtocol: class{
     var presentor: MainInteractorToPresentorProtocol? { get set }
-    func fetchNews(completion: @escaping () -> Void)
+    func fetchNews()
     func updateUI()
 }
 

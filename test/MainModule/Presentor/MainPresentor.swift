@@ -15,9 +15,7 @@ class MainPresentor: MainPresentorProtocol{
     var router: MainRouterProtocol?
     
     func updateUI() {
-        interactor?.fetchNews(completion: {
-            self.interactor?.updateUI()
-        })
+        interactor?.fetchNews()
     }
     
     func showTodoDetail(_ news: News) {
